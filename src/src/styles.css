@@ -1,0 +1,7 @@
+/* Add application styles & imports to this file! */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  background: wheat;
+  background-size: 100% auto;
+}

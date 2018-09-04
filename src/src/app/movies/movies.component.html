@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-10"><input type="text" name="movie" class="form-control" placeholder="Enter movie name..." ></div>
+  <button type="button">Search</button>
+  </div>
+<hr>
+<p *ngIf="movies.length" class="movies-found">{{ movies.length }} Movies Found!</p>
+
+<div class="card-columns movies-listing">
+  <div *ngFor="let movie of movies | paginate: { itemsPerPage: 15, currentPage: p }" class="card">
+      <img *ngIf="false" alt="Card image cap" class="card-img-top">
+    <div class="card-body">
+      <a href="{{ movie.movie_imdb_link }}" target="_blank">
+        <h5 class="card-title">{{ movie.movie_title}}</h5>
+      </a>
+      <p><span class="titl">Director</span>: {{movie.director_name}}</p>
+      <p><span class="titl">Actors</span>: {{movie.actor_1_name}} <i>and</i> {{movie.actor_2_name}}</p>
+      <p><span class="titl">Genres</span>: <span class="label label-primary">{{ movie.genres }}</span></p>
+      <p class="titl card-text">{{ movie.title_year }}</p>
+    </div>
+  </div>
+</div>
+<div class="pag">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
